@@ -106,6 +106,6 @@ def deal_time(string):
 
 
 if __name__ == '__main__':
-    string = '2019-11-1'
+    string = '1563118670'
     result = deal_time(string)
     print(result)
