@@ -4,12 +4,13 @@ from urllib import parse
 from .util import Util, transformTime
 from ..items import ScrapyTestItem
 
+
 class XwSpider(scrapy.Spider):
     name = 'xw'
     # allowed_domains = ['www.sougou.com']
     start_urls = ['http://www.sougou.com/']
 
-    def __init__(self, keyword='中国男篮',crawl_time='2019-07-11 17:04:58', *args, **kwargs):
+    def __init__(self, keyword='河北 财政 河北财政厅',crawl_time='2019-07-11 17:04:58', *args, **kwargs):
         super(XwSpider, self).__init__(*args, **kwargs)
         self.keyword = keyword
         self.crawl_time = crawl_time

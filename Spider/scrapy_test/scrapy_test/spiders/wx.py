@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from urllib import parse
-from .util import Util,transformTime
+from .util import Util, transformTime
 from ..items import ScrapyTestItem
+
 
 class WxSpider(scrapy.Spider):
     name = 'wx'
     # allowed_domains = ['www.sougou.com']
     start_urls = ['http://www.sougou.com/']
 
-    def __init__(self, keyword='杭州女童失联',crawl_time='2019-07-11 17:04:58', *args, **kwargs):
+    def __init__(self, keyword='河北 财政 河北财政厅',crawl_time='2019-07-11 17:04:58', *args, **kwargs):
         super(WxSpider, self).__init__(*args, **kwargs)
         self.keyword = keyword
         self.crawl_time = crawl_time
@@ -25,7 +26,7 @@ class WxSpider(scrapy.Spider):
         url = base_url + parse.urlencode(para)
         yield scrapy.Request(url, callback=self.parse_href)
 
-    def parse_href(self,response):
+    def parse_href(self, response):
         # self.logger.info(response.css('.news-list li '))
         hrefs = response.css('.news-list li ')
         next_base_url = 'https://weixin.sogou.com/weixin'

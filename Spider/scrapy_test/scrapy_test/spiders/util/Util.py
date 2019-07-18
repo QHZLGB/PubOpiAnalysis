@@ -1,4 +1,5 @@
 import re
+import time
 
 
 def filter_num(text):
@@ -33,6 +34,11 @@ def filter_author_time(text):
         return author_time[0], author_time[1]
     else:
         return None,None
+
+
+def now():
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+
 
 if __name__ == '__main__':
     a="编辑与 2180-11-11"

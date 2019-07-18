@@ -10,7 +10,7 @@ class ZhSpider(scrapy.Spider):
     # allowed_domains = ['www.zhuhu.com']
     start_urls = ['http://www.zhuhu.com/']
 
-    def __init__(self, keyword='中国男篮夏季联赛',crawl_time='2019-07-11 17:04:58', *args, **kwargs):
+    def __init__(self, keyword='男篮世界杯',crawl_time='2019-07-11 17:04:58', *args, **kwargs):
         super(ZhSpider, self).__init__(*args, **kwargs)
         self.keyword = keyword
         self.crawl_time = crawl_time
@@ -86,7 +86,7 @@ class ZhSpider(scrapy.Spider):
         pub_time = response.css('#root > div > main > div > article > div.ContentItem-time::text').extract_first()
         crawl_time = self.crawl_time
         source = '知乎'
-        self.logger.info(type(rpt))
+        # self.logger.info(type(rpt))
         # repeat = rpt
         # comment = comm
         # like = up

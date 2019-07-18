@@ -1,4 +1,4 @@
-import time
+import time as tm
 from datetime import *
 import re
 ####
@@ -67,10 +67,16 @@ def miss_zero(string):
     else:
         return False
 
+def match_now(string):
+    return  re.match(r'^刚刚$', string)
+
 # string = "昨天 19:09"
 def deal_time(string):
     if string is None:
         return None
+    elif match_now(string):
+        # print("now")
+        return tm.strftime('%Y-%m-%d %H:%M:%S', tm.localtime(tm.time()))
     elif standard_time(string):
         # print("标准时间")
         return string
@@ -106,6 +112,6 @@ def deal_time(string):
 
 
 if __name__ == '__main__':
-    string = '1563118670'
+    string = '刚刚'
     result = deal_time(string)
     print(result)
